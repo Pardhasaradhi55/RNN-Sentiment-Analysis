@@ -15,8 +15,8 @@ reverse_word_index={value:key for key, value in word_index.items()}
 #from my_layers import MyCustomLayer
 #model = keras.saving.load_model('simple_rnn_imdb.keras', custom_objects={'MyCustomLayer': MyCustomLayer})
 
-model = keras.saving.load_model('simple_rnn_imdb.keras')
-#model=load_model('simple_rnn_imdb.h5')
+#model = keras.saving.load_model('simple_rnn_imdb.keras')
+model=load_model('simple_rnn_imdb.h5')
 
 def decode_review(encoded_review):
     return ' '.join([reverse_word_index.get(i-3,'?') for i in encoded_review])
