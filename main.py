@@ -11,8 +11,8 @@ ssl._create_default_https_context = lambda: ssl.create_default_context(cafile=ce
 
 word_index=imdb.get_word_index()
 reverse_word_index={value:key for key, value in word_index.items()}
-
-model=load_model('simple_rnn_imdb.h5')
+model = keras.saving.load_model('simple_rnn_imdb.keras')
+#model=load_model('simple_rnn_imdb.h5')
 
 def decode_review(encoded_review):
     return ' '.join([reverse_word_index.get(i-3,'?') for i in encoded_review])
