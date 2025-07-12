@@ -12,7 +12,10 @@ ssl._create_default_https_context = lambda: ssl.create_default_context(cafile=ce
 
 word_index=imdb.get_word_index()
 reverse_word_index={value:key for key, value in word_index.items()}
-model = keras.saving.load_model('simple_rnn_imdb.keras')
+from my_layers import MyCustomLayer
+model = keras.saving.load_model('simple_rnn_imdb.keras', custom_objects={'MyCustomLayer': MyCustomLayer})
+
+#model = keras.saving.load_model('simple_rnn_imdb.keras')
 #model=load_model('simple_rnn_imdb.h5')
 
 def decode_review(encoded_review):
